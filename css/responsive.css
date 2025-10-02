@@ -1,0 +1,144 @@
+/*Responsivitet*/
+
+/*Stilar för tablet enheter*/
+@media (min-width: 768px) {
+    /*Header innehåll centreras*/
+    header {
+        justify-content: center;
+        gap: 5rem;
+    }
+    /*Hamburgar kanpp döljs*/
+    .hamburger-btn {
+        display: none;
+    }
+    /*Veritkal navigations meny visas*/
+    .menu {
+        display: flex;
+    }
+    /*Sidans två nedre sektioner får horisontell layout*/
+    .projects .flexbox-container, .socials {
+        flex-direction: row;
+    }
+    /*Rubrik placering*/
+    .projects h2 {
+        padding: 2rem;
+    }
+    /*Förstorar projekt kort och projekt bild*/
+    .project-card {
+        padding: 1rem;
+        width: 350px;
+    }
+    .project-card img {
+        height: 250px;
+    }
+}
+
+/*Stilar för desktop enheter*/
+@media (min-width: 1024px) {
+    /*Bergränsad storlek för varje sektion*/
+    section {
+        width: 900px;
+    }
+    /*Den övre sektionen får horisontell layout*/
+    .about {
+        flex-direction: row;
+    }
+    /*Text stycke storlek*/
+    .about p {
+        width: 400px;
+        height: 200px;
+    }
+    /*Avrgränsaren blir veritkals istället för horisontell*/
+    .about h1 {
+        border-bottom: none;
+    }
+    .about .flexbox-container {
+        border-left: solid 1px #7a7a7a;;
+    }
+    /*Minskar projekt kort och projekt bild storlek*/
+    .project-card {
+        width: 300px;
+    }
+    .project-card img {
+        height: 200px;
+    }
+}
+
+/*Stilar för större desktop enheter*/
+@media (min-width: 1200px) {
+    /*Ökar projekt kort och projekt bild storlek*/
+    .project-card {
+        width: 400px;
+    }
+    .project-card img {
+        height: 250px;
+    }
+}
+
+/*Hover effekter för enheter som stödjer det*/
+@media (hover: hover) and (pointer: fine) {
+    
+    /*Tilt animation som har origo i elementets lägre vänstra hörn */
+    .tilt {
+        transition: transform 0.3s cubic-bezier(.34,2,.64,1);
+        transform-origin: bottom left;
+    } 
+    /*Lutar element åt vänster och skalar upp elementet vid hover*/
+    .tilt:hover {
+        transform: rotate(-2deg) scale(1.1);
+    }
+    /*Flyttar projekt kort bild uppåt och bilden blir lite transparant vid hover*/
+    .project-card:hover img {
+        transform: translateY(-1rem); 
+        background-color: white;
+        opacity: 0.7;
+    }
+    /*Socials länkar blir större vid hover*/
+    .socials ul li:first-child:hover {
+        transform: scale(1.1);
+    }
+    /*Sevdo element för navigations meny*/
+    /*Vita understreck som växer mjukt vid hover*/
+    .menu ul li a::after, .hamburger-menu ul li a::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+        width: 0;
+        height: 4px;
+        background-color: whitesmoke;
+        transition: width 0.5s ease;
+    }
+    .menu ul li a:hover::after, .hamburger-menu ul li a:hover::after {
+        width: 100%;
+    }
+} 
+
+/*Touch effekter för enheter som inte stödjer hover effekter*/
+@media (hover: none) and (pointer: coarse) {
+    
+    /*Vit understreck på navigations meny länkar vid touch*/
+    .menu u li a:active, .hamburger-menu ul li a:active {
+        text-decoration: underline 3px whitesmoke;
+        text-underline-offset: 10px;
+    }
+    /*Flyttar projekt kort bild uppåt och bilden blir lite transparant vid touch*/
+    .project-card:hover img {
+        transform: translateY(-1rem); 
+        background-color: white;
+        opacity: 0.7;
+    }
+    /*Socials länkar blir större vid touch*/
+    .socials ul li:first-child:active {
+        transform: scale(1.1);
+    }
+}
+
+/*Minskade animationer för enheter med den preferensen*/
+@media (prefers-reduced-motion: reduce) {
+    * { 
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

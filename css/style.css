@@ -1,0 +1,346 @@
+
+/*Återställer styles, layout och storleks attribut*/
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style-type: none;
+    box-sizing: border-box;
+}
+
+/*Skalbar typografi*/
+:root {
+    --scale-ratio: 1.25;
+
+    --text-sm: 0.8rem;
+    --text-base: 1rem;
+    --text-lg: 1.25rem;
+    --text-xl: 1.563rem;
+    --text-2xl: 1.953rem;  
+    --text-3xl: 2.441rem;  
+} 
+
+/*Typografi storlek och stilar*/
+p {
+    font-size: var(--text-base);
+    color: #7a7a7a;
+    font-family: 'Times New Roman', serif;
+    line-height: 1.4;
+}
+h1,h2,h3,h4 {
+    color: #2a2a2a;
+    font-family: Helvetica, sans-serif;
+}
+h1 {
+    font-size: var(--text-3xl);
+}
+h2 {
+    font-size: var(--text-2xl);
+} 
+h3 {
+    font-size: var(--text-xl);
+} 
+.large {
+    font-size: var(--text-lg);
+} 
+.small {
+    font-size: var(--text-sm);
+} 
+
+/*Kropp layout*/
+body {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+/*Header layout, storlek och stil*/
+header {
+    display: flex;
+    flex-direction: row; 
+    background-color: #2a2a2a;
+    height: 80px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    box-shadow: 0px 0px 10px black;
+}
+/*Header text färg*/
+header h2, header .menu ul li a {
+    color: whitesmoke;
+}
+
+/*Footer layout, storlek och stil*/
+footer {
+    height: 80px;
+    padding: 2rem;
+    background-color: #2a2a2a;
+    box-shadow: 0px 0px 10px black;
+}
+/*Footer text layout och stil*/
+footer p {
+    color: whitesmoke;
+    font-family: Helvetica, sans-serif;
+    text-align: center;
+    font-weight: bold;
+} 
+
+/*Hamburgar meny stil och position*/
+.hamburger-menu {
+    position: absolute;
+    top: -100%; /*Hela elementet är utanför skrämen i övre vänster hörn*/
+    left: 0;
+    right: 0;
+    transition: top 0.3s; /*Åker in från toppen*/
+    display: none; /*Visas inte på desktop*/
+    background-color: #2a2a2a;
+    box-shadow: 0px 0px 10px black;
+}
+
+/*Hamburgar navigations meny layout*/
+.hamburger-menu ul {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+}
+
+/*Navigations element storlek*/
+.menu ul li, .hamburger-menu ul li {
+    padding: 1rem;
+}
+
+/*Navigations text stil*/
+.menu ul li a, .hamburger-menu ul li a {
+    color: whitesmoke;
+    font-weight: bold;
+    font-family: Helvetica, sans-serif;
+    font-size: var(--text-lg);
+    position: relative;
+} 
+
+/*Navigations meny dold*/
+.menu {
+    display:  none;
+}
+
+/*Navigations meny layout*/
+.menu ul {
+    display: flex;
+    flex-direction: row;
+} 
+
+/*Hamburgar knapp storlek och position*/
+.hamburger-btn {
+    min-width: 44px;
+    min-height: 44px;
+    position: relative;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 999;
+    justify-content: center;
+}
+
+/*Hamburgar ikon stil*/
+.hamburger-btn span {
+    left: 0;
+    position: absolute;
+    width: 40px;
+    height: 4px;
+    background: whitesmoke;
+    transition: 0.3s;
+}
+
+/*Hamburgar ikon mellanrum mellan streck*/
+.hamburger-btn span:nth-child(1) { top: 0; }
+.hamburger-btn span:nth-child(2) { top: 15px; }
+.hamburger-btn span:nth-child(3) { top: 30px; }
+
+/*När hamburgar knapp trycks förvandlas ikonen till ett x*/
+.hamburger-btn.open span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 9px;
+}
+.hamburger-btn.open span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger-btn.open span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 9px;
+}
+
+/*När hamburgar knapp trycks visas navigations menyn*/
+.hamburger-menu.open {
+    display: flex;
+    top:0;
+}
+
+
+/*Huvud innehåll*/
+
+/*Sektioner layout och placering*/
+section {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+/*Om sektion storlek och layout*/
+.about {
+    width: fit-content;
+    height: fit-content;
+    gap: 2rem;
+}
+
+/*Huvud rubrik placering och stil*/
+.about h1{
+    align-self: center;
+    width: fit-content;
+    padding: 2rem;
+    border-bottom: solid 1px #7a7a7a;;
+}
+
+/*Porträtt storlek och placering*/
+.about img {
+    display: flex;
+    align-self: center;
+    border-radius: 1rem;
+    height: 200px;
+    width: 200px;
+}
+
+/*Om sektion text stycke storlek*/
+.about p {
+    padding: 1rem;
+}
+
+/*Flexbox container i om sektion med kolumn layout*/
+.about .flexbox-container{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+/*Rubrik placering*/
+.about .flexbox-container h2 {
+    margin: 1rem;
+}
+
+/*Projekt sektion layout*/
+.projects {
+    width: fit-content;
+}
+
+/*Rubrik placering*/
+.projects h2 {
+    padding: 1rem;
+}
+
+/*Flexbox container i om sektion med rad layout*/
+.projects .flexbox-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+/*Projekt kort layout och storlek*/
+.project-card {
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+    padding: 1rem 0.5rem;
+    cursor: pointer;
+    height: fit-content;
+    width: 320px;
+}
+
+/*Projekt kort bilder storlek*/
+.project-card img {
+    height: 220px;
+    width: 100%;
+    border-radius: 1rem;
+    transition: all 0.3s ease-in-out;
+}
+
+/*Kontakt sektion layout*/
+.socials {
+    justify-content: space-evenly;
+    padding: 2rem;
+    gap: 4rem;
+} 
+
+/*Socials länkar med underrubrik*/
+.socials ul {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    align-items: center;
+}
+
+/*Socials länkar storlek*/
+.socials ul li {
+    padding: 0.5rem;
+    transition: 0.3s ease-in-out;
+}
+
+/*Socials länkar text stil*/
+.socials ul li a {
+    font-weight: bold;
+    font-size: var(--text-xl);
+    color: #2a2a2a;
+    font-family: Helvetica, sans-serif;
+    cursor: pointer;
+}
+
+/*Första länken är grön*/
+.socials :first-child li a {
+    color: #07c007; 
+    border-radius: 1rem;
+}
+
+/*Andra länken är rosa*/
+.socials :nth-child(2) li a {
+    color: #d71080;
+}
+
+/*Tredje länken är blå*/
+.socials :nth-child(3) li a {
+    color: #3d3dff;
+}
+
+/*Undertext är grå*/
+.socials ul li:nth-child(2){
+    color: #7a7a7a;
+}
+
+/*Animationer och effekter*/
+
+/*Skriver ut texten i elementet*/
+@keyframes typing {
+    from { width: 0; } /*Elementet är doldt från början*/
+    to { width: 11ch; } /* Antal tecken att skriva ut */
+}
+/*Blinkande text-pekare*/
+@keyframes blink {
+    50% {border-right-color: transparent; }
+}
+/*Element är doldt och skrivs sedan ut*/
+.typewriter {
+    border-right: 2px solid #2a2a2a;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0; 
+    animation: typing 4s steps(30, end) forwards, blink 0.7s step-end infinite;
+}
+/*Element är doldt tills det scorllas in i viewport*/
+.fade-in {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+/*När element scrollas in i viewport tonas det in från botten*/
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
