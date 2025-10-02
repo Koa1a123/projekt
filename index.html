@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <title>Min portfolio</title>
+</head>
+<body>
+
+    <!--Sidans header-->
+    <header>  
+        <h2 class="tilt">O.R</h1>
+        
+        <!--Navigations meny för desktop och tablet enheter-->    
+        <nav class="menu">
+            <ul>
+                <li><a href="#projects">Projekt</a></li>
+                <li><a href="#about">Information</a></li>
+                <li><a href="#socials">Kontakt</a></li>
+            </ul>
+        </nav>
+        
+        <!--Hamburgar knapp som visar navigations meny-->
+        <button class="hamburger-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
+        <!--Hamburgarmeny för mobil enheter-->
+        <nav class="hamburger-menu">
+            <ul>
+                <li><a href="#projects">Projekt</a></li>
+                <li><a href="#about">Information</a></li>
+                <li><a href="#socials">Kontakt</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <!--Introduktions sektion-->
+    <section id="about" class="about">  
+        <h1>Hej, jag är Oskar Reiboldt!</h1>
+        <img src="images/839x802.png" alt="portrait" class="tilt" loading="lazy">
+
+        <div class="flexbox-container">
+            <h2 class="typewriter">Vem är jag?</h2>
+            <p>
+                Jag går 3:e året på gymnasiet och studerar teknik programmet, med intriktningen media- och informationstekenik. 
+                Skolan jag studerar på heter Nils Fredrikson Gymnasium. Jag har både erfarenhet inom front-end och back-end utveckling. 
+                Programmeringspråken jag specialiserar mig i är python, javascript, html och css. 
+                Mitt fokus ligger i att utveckla projekt som både är intresanta och relevanta för den tid vi lever i.
+            </p>
+        </div>
+    </section>
+
+    <!--Sektion om projekt-->
+    <section id=projects class="projects fade-in">
+        <h2>Projekt</h2>
+        <div class="flexbox-container">
+            <div class="project-card">
+
+                <!--Bild med olika upplösningar för olika skärmstorlekar-->
+                <picture>
+                    <!--Mobil: under 768px-->
+                    <source srcset="images/mobile/LowRes640x480.jpg" media="(max-width: 768px)">
+                    <!--Tablet: mellan 768-1024px-->
+                    <source srcset="images/tablet/MediumRes800x600.jpg" media="(max-width: 1024px)">
+                    <!--Desktop: över 1024px-->
+                    <source srcset="images/desktop/HighRes900x675.jpg" media="(min-width: 1025px)">
+                    <!--Fallback om inget matchar-->
+                    <img src="images/mobile/LowRes640x480.jpg" alt="projekt bild" loading="lazy">
+                </picture>
+                <h3>Python Projekt</h3>
+                <p>
+                    Under min gymnasietid har jag utvecklat flera mindre python projekt som utforskar hur programmeringspråket kan tillämpas. 
+                    Jag har blandt annat byggt en CRUD applikation med hjälp av ramverket FLASK, ett fullstack projekt.
+                </p>
+            </div>
+            <div class="project-card">
+
+                <!--Bild med olika upplösningar för olika skärmstorlekar-->
+                <picture>
+                    <!--Mobil: under 768px-->
+                    <source srcset="images/mobile/LowRes640x320.jpg" media="(max-width: 768px)">
+                    <!--Tablet: mellan 768-1024px-->
+                    <source srcset="images/tablet/MediumRes800x400.jpg" media="(max-width: 1024px)">
+                    <!--Desktop: över 1024px-->
+                    <source srcset="images/desktop/HighRes1000x500.png" media="(min-width: 1025px)">
+                    <!-- Fallback om inget matchar -->
+                    <img src="images/mobile/LowRes640x320.jpg" alt="projekt bild" loading="lazy">
+                </picture>
+        
+                <h3>Webbutveckling</h3>
+                <p>
+                    Jag har designat och byggt diverse hemsidor till företag med fokus på frontend. 
+                    Webbsidorna är både responsiva och interaktiva för att hålla marknadens standard. 
+                    De flesta projekt blev klara på mindre än en månad.
+                </p>
+            </div>
+            <div class="project-card">
+
+                <!--Bild med olika upplösningar för olika skärmstorlekar-->
+                <picture>
+                    <!--Mobil: under 768px-->   
+                    <source srcset="images/mobile/LowRes640x432.jpg" media="(max-width: 768px)">
+                    <!--Tablet: mellan 768-1024px-->
+                    <source srcset="images/tablet/MediumRes800x540.jpg" media="(max-width: 1024px)">
+                    <!--Desktop: över 1024px-->
+                    <source srcset="images/desktop/HighRes1500x1013.jpg" media="(min-width: 1025px)">
+                    <!-- Fallback om inget matchar -->
+                    <img src="images/mobile/LowRes640x432.jpg" alt="projekt bild" loading="lazy">
+                </picture>
+                <h3>Gymnasiearbete</h3>
+                <p>
+                    Detta är ett pågående projekt. Det handlar om att programmera en generativ språkmodell i python. 
+                    Algotrimen bygger på markov kedjor för att generera text utifrån sannolikhet i språket. 
+                    Projektet siktas att vara klart till slutet av året.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!--Kontakt sektion-->
+    <section id="socials" class="socials fade-in">
+        <ul>
+            <li><a href="">Min hemsida</a></li>
+            <li>Du är här!</li>
+        </ul>
+        <ul>
+            <li><a href="">Instagram</a></li>
+            <li>Min vardag</li>
+        </ul>
+        <ul>
+            <li><a href="">Linked In</a></li>
+            <li>Profesionella kontakter</li>
+        </ul>
+    </section>
+
+    <!--Sidans footer-->
+    <footer> 
+        <p>&copy;Oskar 2025</p>
+    </footer>
+
+    <!--Länk till JavaScript dokument-->
+    <script src="script.js"></script>
+</body>
+</html>
