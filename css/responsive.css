@@ -31,6 +31,10 @@
     .project-card img {
         height: 250px;
     }
+    .socials ul {
+        box-shadow: none;
+        padding: 1rem;
+    }
 }
 
 /*Stilar för desktop enheter*/
@@ -53,7 +57,7 @@
         border-bottom: none;
     }
     .about .flexbox-container {
-        border-left: solid 1px #7a7a7a;;
+        border-left: solid 1px #4e4e4e;
     }
     /*Minskar projekt kort och projekt bild storlek*/
     .project-card {
@@ -123,14 +127,15 @@
         text-underline-offset: 10px;
     }
     /*Flyttar projekt kort bild uppåt och bilden blir lite transparant vid touch*/
-    .project-card:hover img {
+    .project-card:active img {
         transform: translateY(-1rem); 
         background-color: white;
         opacity: 0.7;
     }
     /*Socials länkar blir större vid touch*/
-    .socials ul li:first-child:active {
-        transform: scale(1.1);
+    .socials ul:active {
+        transform: translateY(-1rem);
+        background-color: lightgrey;
     }
 }
 
