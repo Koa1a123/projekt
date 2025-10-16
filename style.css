@@ -1,0 +1,183 @@
+/*Återställer stiler och layout*/
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+} 
+/*Kropp stil och layout*/
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background-color: #6366ff;
+    font-family: Helvetica, sans-serif;
+}
+/*Formulär container storlek och stil*/
+.container {
+    padding: 2rem;
+    align-items: center;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 10px black;
+    width: 100%;
+    max-width: 600px;
+}
+/*Header placering*/
+h1 {
+    text-align: center;
+    padding: 1rem;
+}
+/*Mellanrum mellan input fält*/
+.form_group {
+    margin-bottom: 2rem;
+}
+/*Fält rubriker stil*/
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #555;
+} 
+/*Input fält stil och storlek*/
+input {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    border: lightgrey solid 2px;
+    border-radius: 0.5rem;
+    transition: border-color 0.3s;
+} 
+/*Input fält får blå kant vid selektion */
+input:focus {
+    outline:none;
+    border-color: #6366ff;
+}
+/*Input fält är korrekt*/
+input.valid {
+    border-color: #4caf50;
+}
+/*Input fält är inkorrekt*/
+input.invalid {
+    border-color: red;
+}
+/*Fel meddelande stil, är gömt om fältet är tomt*/
+.error_msg {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    display: none;
+}
+/*Visar fel meddelande*/
+.error_msg.show {
+    display: block;
+}
+/*fält för lösenord styrka stil och storlek*/
+.psw_strength{
+    margin-top: 8px;
+    height: 5px;
+    background: #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+}
+/*fält för stryka är tomt om fält för lösenord är tomt*/
+.strength_bar {
+    height: 100%;
+    width: 0%;
+    transition: all 0.3s;
+}
+/*lösenord styrka meddelande*/
+.strength_txt {
+    font-size: 14px;
+    margin-top: 5px;
+    font-weight: bold;
+}
+/*färg för svagt lösenord*/
+.weak {
+    background: red;
+}
+/*färg för medel lösenord*/
+.medium {
+    background: #ff9800;
+}
+/*färg för starkt lösenord*/
+.strong {
+    background: #4caf50;
+}
+/*sumbit knapp stil och storlek*/
+button {
+    font-weight: bold;
+    font-size: 16px;
+    padding: 1rem;
+    width: 100%;
+    background-color: #6366ff;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    transition: background-color 0.5s ease-in-out;
+} 
+/*vid hover blir sumbit knapp mörkare*/
+button:hover, button:focus {
+    outline: none;
+    background-color: #3638c5;
+}
+/*sumbit knapp är otillgänglig om forumläret är inkorrekt ifyllt*/
+button:disabled {
+    background-color: lightgrey;
+    cursor: not-allowed;
+}
+
+.loader {
+    width: 48px;
+    height: 48px;
+    border: 5px solid black;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    margin: 1rem auto;
+    display: none;
+    position: absolute;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    }
+
+    @keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+} 
+
+.loader.show {
+    display: block;
+}
+/*på desktop enheter är för- och efternamns fält på samma rad*/
+.name_container {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+/*namn fälten är lika stora*/
+.fname_column, .lname_column {
+    width: 50%;
+}
+
+/*stilar för tablet och mobil*/
+@media (max-width: 768px) {
+    /*mindre padding runtkomkring formulär*/
+    body {
+        padding: 1rem;
+    }
+    /*namn fälten är på olika rader*/
+    .name_container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    /*namn fälten är blir lika stora som resten av fälten*/
+    .fname_column, .lname_column {
+        width: 100%;
+    }
+}
