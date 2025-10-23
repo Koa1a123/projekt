@@ -14,46 +14,45 @@
             <div class="name_container">
                 <div class="fname_column">
                     <label for="f_name">Förnamn</label>
-                    <input type="text" id="f_name" placeholder="Ditt förnamn" name="förnaman">
-                    <div id="f_name_msg" class="error_msg">Ange ditt förnaman<br>(minst 2 tecken)</div>
+                    <input type="text" id="f_name" placeholder="Ditt förnamn" name="förnamn" aria-describedby="f_name_msg">
+                    <div id="f_name_msg" class="error_msg">Ange ditt förnamn<br>(minst 2 tecken)</div>
                 </div>
                 <div class="lname_column">
                     <label for="l_name">Efternamn</label>
-                    <input type="text" id="l_name" placeholder="Ditt efternamn" name="efternamn">
-                    <div id="l_name_msg" class="error_msg">Ange ditt efternaman<br>(minst 2 tecken)</div>
+                    <input type="text" id="l_name" placeholder="Ditt efternamn" name="efternamn" aria-describedby="l_name_msg">
+                    <div id="l_name_msg" class="error_msg">Ange ditt efternamn<br>(minst 2 tecken)</div>
                 </div>
             </div>
             <div class="form_group">
                 <label for="email">E-post</label>
-                <input type="email" id="email" placeholder="Din e-post" name="epost">
+                <input type="email" id="email" placeholder="Din e-post" name="epost" aria-describedby="email_msg">
                 <div id="email_msg" class="error_msg">Ange epost som innehåller @ och domän<br>(exempel: namn@email.com)</div>
             </div>
             <div class="form_group">
                 <label for="age">Ålder</label>
-                <input type="number" id="age" placeholder="Din ålder" name="ålder">
+                <input type="number" id="age" placeholder="Din ålder" name="ålder" aria-describedby="age_msg">
                 <div id="age_msg" class="error_msg">Ange ålder mellan 18-100 år</div>
             </div>
             <div class="form_group">
                 <label for="psw">Lösenord</label>
-                <input type="password" id="psw" placeholder="Ditt lösenord" name="lösenord">
+                <input type="password" id="psw" placeholder="Ditt lösenord" name="lösenord" aria-describedby="psw_msg">
                 <div class="psw_strength">
                     <div class="strength_bar" id="strength_bar"></div>
                 </div>
-                <div class="strength_txt" id="strength_txt"></div>
+                <div class="strength_txt" id="strength_txt" aria-live="polite"></div>
                 <div id="psw_msg" class="error_msg">Ange ett giltigt lösenord<br>(minst 8 tecken, siffra, specialtecken, stor bokstav)</div>
             </div>
             <div class="form_group">
                 <label for="con_psw">Bekräfta Lösenord</label>
-                <input type="password" id="con_psw" placeholder="Ditt Lösenord">
+                <input type="password" id="con_psw" placeholder="Ditt Lösenord" aria-describedby="con_psw_msg">
                 <div id="con_psw_msg" class="error_msg">Lösenord matchar inte</div>
             </div>
 
             <button type="submit" id="submit_btn">Registrera dig</button>
-            <p id="sumbit_msg" class="error_msg">Alla fält måste vara ifyllda korrekt</p>
+            <p id="sumbit_msg" class="error_msg" aria-live="polite">Alla fält måste vara ifyllda korrekt</p>
         </form>
     </main>
     <span id="loader" class="loader"></span>
     <script src="script.js"></script>
 </body>
 </html>
-
