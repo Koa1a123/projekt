@@ -11,7 +11,7 @@ body {
     align-items: center;
     justify-content: center;
     padding: 2rem;
-    background-color: #CCCCCC;
+    background-color: #6366ff;
     font-family: Helvetica, sans-serif;
 }
 /*Formulär container storlek och stil*/
@@ -56,7 +56,7 @@ input {
 /*Input fält får blå kant vid selektion */
 input:focus {
     outline:none;
-    border-color: #6366ff;
+    border-color: #3a3dfe;
 }
 /*Input fält är korrekt*/
 input.valid {
@@ -113,7 +113,7 @@ button {
     font-size: 16px;
     padding: 1rem;
     width: 100%;
-    background-color: #3399FF;
+    background-color: #3a3dfe;
     color: white;
     border: none;
     border-radius: 0.5rem;
@@ -122,7 +122,7 @@ button {
 /*vid hover blir sumbit knapp mörkare*/
 button:hover, button:focus {
     outline: none;
-    background-color: #2326ca;
+    background-color: #1a1dbf;
 }
 /*sumbit knapp är otillgänglig om forumläret är inkorrekt ifyllt*/
 button:disabled {
@@ -181,4 +181,5 @@ button:disabled {
     .fname_column, .lname_column {
         width: 100%;
     }
+
 }
