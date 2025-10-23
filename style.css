@@ -11,7 +11,7 @@ body {
     align-items: center;
     justify-content: center;
     padding: 2rem;
-    background-color: #6366ff;
+    background-color: #CCCCCC;
     font-family: Helvetica, sans-serif;
 }
 /*Formulär container storlek och stil*/
@@ -28,6 +28,10 @@ body {
 h1 {
     text-align: center;
     padding: 1rem;
+}
+p {
+    line-height: 1.5;
+    font-size: 1rem;
 }
 /*Mellanrum mellan input fält*/
 .form_group {
@@ -65,7 +69,6 @@ input.invalid {
 /*Fel meddelande stil, är gömt om fältet är tomt*/
 .error_msg {
     color: red;
-    font-size: 14px;
     margin-top: 5px;
     display: none;
 }
@@ -89,7 +92,6 @@ input.invalid {
 }
 /*lösenord styrka meddelande*/
 .strength_txt {
-    font-size: 14px;
     margin-top: 5px;
     font-weight: bold;
 }
@@ -111,7 +113,7 @@ button {
     font-size: 16px;
     padding: 1rem;
     width: 100%;
-    background-color: #6366ff;
+    background-color: #3399FF;
     color: white;
     border: none;
     border-radius: 0.5rem;
@@ -120,14 +122,14 @@ button {
 /*vid hover blir sumbit knapp mörkare*/
 button:hover, button:focus {
     outline: none;
-    background-color: #3638c5;
+    background-color: #2326ca;
 }
 /*sumbit knapp är otillgänglig om forumläret är inkorrekt ifyllt*/
 button:disabled {
     background-color: lightgrey;
     cursor: not-allowed;
 }
-
+/*Loader ikon storlek, stil, placering och animation*/
 .loader {
     width: 48px;
     height: 48px;
@@ -135,12 +137,11 @@ button:disabled {
     border-bottom-color: transparent;
     border-radius: 50%;
     margin: 1rem auto;
-    display: none;
+    display: none; /*Ikon är dold automatiskt*/
     position: absolute;
     box-sizing: border-box;
-    animation: rotation 1s linear infinite;
+    animation: rotation 1s linear infinite; /*Loader ikon snurrar konstant*/
     }
-
     @keyframes rotation {
     0% {
         transform: rotate(0deg);
@@ -149,7 +150,7 @@ button:disabled {
         transform: rotate(360deg);
     }
 } 
-
+/*Visar loader ikon när sumbit knappen trycks*/
 .loader.show {
     display: block;
 }

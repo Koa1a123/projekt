@@ -42,6 +42,7 @@ var con_psw_valid = false;
 function validate_first_name() {
     var name = f_name_input.value;
 
+    //Visar felmeddlande om förnamn inte innehåller minst 2 bokstäver
     if (name_pattern.test(name)) {
         f_name_input.className = 'valid';
         f_name_error.className = 'error_msg';
@@ -57,6 +58,7 @@ function validate_first_name() {
 function validate_last_name() {
     var name = l_name_input.value;
 
+    //Visar felmeddlande om efternamn inte innehåller minst 2 bokstäver
     if (name_pattern.test(name)) {
         l_name_input.className = 'valid';
         l_name_error.className = 'error_msg';
@@ -72,6 +74,7 @@ function validate_last_name() {
 function validate_email() {
     var email = email_input.value;
 
+    //Visar felmeddlande om email inte innehåller @, domän och alla delar är minst två tecken
     if (email_pattern.test(email)) {
         email_input.className = 'valid';
         email_error.className = 'error_msg';
@@ -87,6 +90,7 @@ function validate_email() {
 function validate_age() {
     var age = age_input.value;
 
+    //Visar felmeddlande om ålder är under 18 eller över 100
     if (age >= 18 && age <=100) {
         age_input.className = 'valid';
         age_error.className = 'error_msg';
@@ -101,7 +105,7 @@ function validate_age() {
 
 function validate_psw() {
     var psw = psw_input.value;
-
+    //Visar felmedllande om lösenord inte är minst innehålle 8 tecken, siffra, stor bokstav och speciall tecken.
     if (psw.length < 8) {
         psw_input.className = 'invalid';
         psw_error.className = 'error_msg show';
@@ -119,11 +123,12 @@ function validate_psw() {
 function psw_strength(){
     var psw = psw_input.value;
     var strength = 0;
-
+    //Kontrollerar om lösernord innehåller minst en storbokstav, siffra och specialtecken)
     if (upper_case.test(psw)) strength++;
     if (num.test(psw)) strength++;
     if (special_char.test(psw)) strength++;
     
+    //Lösenords styrka visas beroende på lösernordet längd och innehåll 
     if (psw.length === 0) {
         strength_bar.style.width = '0%';
         strength_txt.textContent = '';
@@ -148,8 +153,8 @@ function psw_strength(){
 function validate_con_psw() {
     var psw = psw_input.value;
     var con_psw = con_psw_input.value;
-
-    if (con_psw == psw && con_psw.length>=8) {
+    //Kontrollerar om det bekräftade lösenordet är det samma som lösenordet, om inte visas felmeddelande
+    if (con_psw == psw) {
         con_psw_input.className = 'valid';
         con_psw_error.className = 'error_msg';
         con_psw_valid = true;
@@ -161,7 +166,7 @@ function validate_con_psw() {
     }
     update_btn();
 }
-//När alla fält är korrekt ifyllda kan användaren trycka på sumbit knappen
+//Om alla fält är korrekt ifyllda kan användaren trycka på sumbit knappen och felmeddelandet döljs
 function update_btn() {
     if(f_name_valid && l_name_valid && email_valid && age_valid && psw_valid && con_psw_valid) {
         submit_btn.disabled = false;
@@ -172,32 +177,35 @@ function update_btn() {
         sumbit_error.className = 'error_msg show'
     }
 }
-
+//När sumbit knappen trycks skickas formuläret till servern (innehållet återställs inte)
 form.addEventListener('submit', function(event) {
     event.preventDefault();
+
+    //Laddikonen visas när formuläret skickas och submit knappen blir otillgänglig
     submit_btn.disabled = true;
     loader.className = 'loader show';
 
+    //Hämtar data från kroppen
     const form_data = new FormData(form);
 
     fetch(form.action, {
         method: form.method,
         body: form_data
     })
+    //Användaren får ett meddelande om post anropet lyckades eller inte
     .then(()=>{
-        submit_btn.disabled = true;
         alert(`Registrering lyckades!\n\nNamn: ${f_name_input.value} ${l_name_input.value} \nE-post: ${email_input.value} \nÅlder: ${age_input.value}`);
     })
     .catch(error=>{
-        submit_btn.disabled = true;
         alert(`Ett fel uppstod: ${error.message}`);
     })
+    //Döljer laddikonen och användaren kan klicka på sumbit knappen igen
     .finally(()=>{
         loader.className = 'loader';
         submit_btn.disabled = false;
     })
 });
-//Lyssnar på input fält
+//Lyssnar på input fält och sumbit knappen
 f_name_input.addEventListener("input",validate_first_name);
 l_name_input.addEventListener("input",validate_last_name);
 email_input.addEventListener("input",validate_email);
