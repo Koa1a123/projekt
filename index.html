@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,7 @@
     <title>Registerings fromulär</title>
 </head>
 <body>
-    <div class="container">
+    <main class="container" role="main">
         <h1>Skapa konto</h1>
         <form id="register_form" action="https://httpbin.org/post" method="POST">
             <div class="name_container">
@@ -51,8 +51,9 @@
             <button type="submit" id="submit_btn">Registrera dig</button>
             <p id="sumbit_msg" class="error_msg">Alla fält måste vara ifyllda korrekt</p>
         </form>
-    </div>
+    </main>
     <span id="loader" class="loader"></span>
     <script src="script.js"></script>
 </body>
 </html>
+
